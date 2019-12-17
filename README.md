@@ -88,11 +88,16 @@ Requires the env_var "XMATTERS_WEBHOOK" to be set to a valid inbound xMatters ge
 
 Optionally supply an env_var "XMATTERS_ANNOTATIONS" to be set to a string containing Sensu Go check and/or entity annotations like "documentation"
 
+This repo supplies four example event files: a warning event and resolved event pair, and a warning event and resolved event pair including additional annotations. To see what the JSON object POSTed to the configured xMatters webhook endpoint looks like for each of these events, you can run the below Bash one-liner:
+
+```bash
+for file in `ls ./example-*.json`; do cat ${file} | /usr/local/bin/sensu-go-xmatters-handler -w https://example.com -d; done
+```
+
 
 ## Installation from source and contributing
 
-The preferred way of installing and deploying this plugin is to use it as an [asset][2]. If you would like to compile and install the plugin from source or contribute to it, download the latest version of the sensu-go-xmatters-handler from [releases][1]
-or create an executable script from this source.
+The preferred way of installing and deploying this plugin is to use it as an [asset][2]. If you would like to compile and install the plugin from source or contribute to it, download the latest version of the sensu-go-xmatters-handler from [releases][1] or create an executable script from this source.
 
 From the local path of the sensu-go-xmatters-handler repository:
 
